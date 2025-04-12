@@ -4,8 +4,13 @@ import Login from './pages/LoginPage';
 import Register from './pages/RegisterPage';
 import ProductList from './pages/ProductList';
 import ProductDetail from './pages/ProductDetail';
-import CreateProduct from './pages/CreateProduct';  // Thêm import trang tạo sản phẩm
-import UpdateProduct from './pages/UpdateProduct';  // Thêm import trang cập nhật sản phẩm
+import CreateProduct from './pages/CreateProduct';
+import UpdateProduct from './pages/UpdateProduct';
+import UserList from './pages/UserList';
+import UserDetail from './pages/UserDetail';
+import CreateUser from './pages/CreateUser';
+import UpdateUser from './pages/UpdateUser';  // nếu bạn có trang này
+import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
@@ -13,16 +18,29 @@ const App = () => {
     <Router>
       <div className="container">
         <Routes>
+          {/* Trang chính */}
+          <Route path="/" element={<Dashboard />} />
+
+          {/* Auth */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/products" element={<ProductList />} />  {/* Danh sách sản phẩm */}
-          <Route path="/product/:id" element={<ProductDetail />} />  {/* Chi tiết sản phẩm */}
-          <Route path="/products/add" element={<CreateProduct />} />  {/* Tạo sản phẩm mới */}
-          <Route path="/products/update/:id" element={<UpdateProduct />} />  {/* Cập nhật sản phẩm */}
+
+          {/* Products */}
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/products/add" element={<CreateProduct />} />
+          <Route path="/products/update/:id" element={<UpdateProduct />} />
+
+          {/* Users */}
+          <Route path="/users" element={<UserList />} />
+          <Route path="/users/:id" element={<UserDetail />} />
+          <Route path="/users/create" element={<CreateUser />} />
+          <Route path="/users/update/:id" element={<UpdateUser />} />
+
         </Routes>
       </div>
     </Router>
   );
-}
+};
 
 export default App;

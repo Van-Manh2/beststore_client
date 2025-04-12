@@ -20,7 +20,8 @@ const LoginPage = () => {
 
       if (response.status === 200) {
         localStorage.setItem('accessToken', response.data.accessToken);
-        navigate('/products');
+        localStorage.setItem('refreshToken', response.data.refreshToken); // nếu có
+        navigate('/'); // chuyển về Dashboard sau khi đăng nhập
       }
     } catch (error) {
       setError('Email hoặc mật khẩu không chính xác!');
